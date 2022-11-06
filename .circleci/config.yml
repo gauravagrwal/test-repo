@@ -15,11 +15,11 @@ jobs:
     steps:
       - checkout
       - run: mkdir -p workspace
-      - run: echo "Hello, World!" > workspace/output.txt
+      - run: echo "Hello, world!" > workspace/echo-output
       - persist_to_workspace:
           root: workspace
           paths: 
-            - output.txt
+            - echo-output
   print_output_file:
     docker:
       - image: cimg/base:stable
@@ -28,12 +28,12 @@ jobs:
           at: /tmp/workspace
       - run: pwd && ls 
       - run: |
-          if [[ `cat /tmp/workspace/output.txt` == "Hello, world!" ]]; then
+          if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
             echo "It worked!";
           else
             echo "Nope!"; exit 1
           fi
-      - run: cat /tmp/workspace/output.txt
+      - run: cat /tmp/workspace/echo-output
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
