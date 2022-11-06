@@ -27,12 +27,12 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run: 
-          command: ls
+          command: pwd && ls 
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  say-hello-world-workflow:
     jobs:
       - save_hello_world_output
       - print_output_file:
