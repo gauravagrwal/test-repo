@@ -25,7 +25,7 @@ jobs:
       - image: cimg/base:stable
     steps: 
       - attach_workspace:
-          at: /workspace
+          at: /tmp/workspace
       - run: 
           command: cat output.txt
 
