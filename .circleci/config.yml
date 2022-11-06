@@ -23,7 +23,7 @@ jobs:
       - image: cimg/base:stable
     steps: 
       - attach_workspace:
-          at: output.txt
+          at: /tmp/workspace
       - run: cat output.txt
 
 # Invoke jobs via workflows
