@@ -26,13 +26,6 @@ jobs:
     steps: 
       - attach_workspace:
           at: /tmp/workspace
-      - run: pwd && ls 
-      - run: |
-          if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
-            echo "It worked!";
-          else
-            echo "Nope!"; exit 1
-          fi
       - run: cat /tmp/workspace/echo-output
 
 # Invoke jobs via workflows
